@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 // import { signIn } from "next-auth/react";
 
-export const NEXTAUTH = {
+export const authOptions = {
   // All the Providers that are provided by the next-auth will contain here
 
   providers: [
