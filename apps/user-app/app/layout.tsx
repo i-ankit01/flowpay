@@ -1,10 +1,12 @@
 import "@repo/ui/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import { Providers } from "./providers";
+import { AppbarClient } from "../components/AppbarClient";
 
 const geist = Geist({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -20,8 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={geist.className}>
         <Providers>
-          {children}
-        </Providers>
+        <body className={inter.className}>
+          <div className="min-w-screen min-h-screen bg-[#ebe6e6]">
+            <AppbarClient />
+            {children}
+          </div>
+        </body>
+      </Providers>
         </body>
     </html>
   );
