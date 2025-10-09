@@ -13,7 +13,9 @@
   "dependencies": {
     "@repo/db": "*",
     "@repo/ui": "*",
+    "@types/axios": "^0.9.36",
     "@types/bcrypt": "^6.0.0",
+    "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
     "next": "^15.4.2",
     "next-auth": "^4.24.11",

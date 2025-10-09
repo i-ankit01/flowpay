@@ -3,17 +3,20 @@ import express from "express";
 import db from "@repo/db/client";
 const app = express();
 
-app.post("/", async (req, res) => {
+app.use(express.json())
+
+app.post("/bankWebhook", async (req, res) => {
   const paymentInformation = {
     token: req.body.token,
     userId: req.body.user_identifier,
     amount: req.body.amount,
   };
+  console.log(paymentInformation)
   
   //transactions
   await db.balance.update({
     where : {
-      userId : paymentInformation.userId
+      userId : Number(paymentInformation.userId)
     },
     data : {
       amount : {
@@ -37,3 +40,6 @@ app.post("/", async (req, res) => {
 
   //update balance in db and add transaction
 });
+
+
+app.listen(5000)
